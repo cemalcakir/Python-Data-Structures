@@ -1,8 +1,8 @@
 # Single node of a singly linked list
 class Node:
-    def __init__(self, data = None, next = None):
+    def __init__(self, data):
         self.data = data
-        self.next = next
+        self.next = None
         
 # A linked list class
 class LinkedList:
@@ -19,7 +19,7 @@ class LinkedList:
         else:
             self.head = Node(data)
 
-    # Deletion method
+    # Deletion
     def delete(self, data):
         if not self.head:
             return
@@ -32,8 +32,7 @@ class LinkedList:
                     current.next = current.next.next
                     return
                 current = current.next
-    
-    # Printing linked list as an array
+
     def __str__(self):
         arr = []
         current = self.head
@@ -41,6 +40,3 @@ class LinkedList:
             arr.append(current.data)
             current = current.next
         return str(arr)
-
-
-
