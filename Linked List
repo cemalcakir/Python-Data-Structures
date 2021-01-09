@@ -33,7 +33,7 @@ class LinkedList:
                     return
                 current = current.next
     
-    # Printing linked list as arr
+    # Printing linked list as an array
     def __str__(self):
         arr = []
         current = self.head
