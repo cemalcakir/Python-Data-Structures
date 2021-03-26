@@ -1,19 +1,26 @@
 class ListNode:
-    def __init__(self, key, val):
-        self.pair = (key, val)
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
         self.next = None
 
 
-class MyHashMap:
-    def __init__(self):
-        self.length = 20
+class HashMap:
+    def __init__(self, length):
+        self.length = length
         self.map = [None] * self.length
 
     def put(self, key: int, value: int) -> None:
         index = key % self.length
         if self.map[index]:
             current = self.map[index]
+            if current.key == key:
+                current.value = value
+                return
             while current.next:
+                if current.next.key == key:
+                    current.next.value = value
+                    return
                 current = current.next
             current.next = ListNode(key, value)
         else:
@@ -23,8 +30,8 @@ class MyHashMap:
         index = key % self.length
         current = self.map[index]
         while current:
-            if current.pair[0] == key:
-                return current.pair[1]
+            if current.key == key:
+                return current.value
             current = current.next
         return -1
 
@@ -33,11 +40,11 @@ class MyHashMap:
         current = self.map[index]
         if not current:
             return
-        if current.pair[0] == key:
+        if current.key == key:
             self.map[index] = current.next
         else:
             while current.next:
-                if current.next.pair[0] == key:
+                if current.next.key == key:
                     current.next = current.next.next
                     return
                 current = current.next
