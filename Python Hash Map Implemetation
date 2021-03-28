@@ -41,13 +41,12 @@ class HashMap:
         "Remove given key and value from hashmap."
         index = key % self.length
         current = self.map[index]
-        if not current:
-            return
-        if current.key == key:
-            self.map[index] = current.next
-        else:
-            while current.next:
-                if current.next.key == key:
-                    current.next = current.next.next
-                    return
-                current = current.next
+        if current:
+            if current.key == key:
+                self.map[index] = current.next
+            else:
+                while current.next:
+                    if current.next.key == key:
+                        current.next = current.next.next
+                        return
+                    current = current.next
