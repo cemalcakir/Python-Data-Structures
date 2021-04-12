@@ -1,7 +1,7 @@
 def bs_recursive(array, x):
     "Initializing recursive function for binary search."
     left = 0
-    right = len(array)
+    right = len(array) - 1
     return recursive_helper(array, x, left, right)
 
 
