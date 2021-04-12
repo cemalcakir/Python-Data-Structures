@@ -6,7 +6,7 @@ def bs_recursive(array, x):
 
 
 def recursive_helper(array, x, left, right):
-    "Helper function for bs_recursive, takes calculates mid value with low and high and performs search."
+    "Helper function for bs_recursive, calculates mid value with low and high and performs search."
     if left > right:
         return "The value has not been found."
     mid = (left + right) // 2
