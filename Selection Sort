@@ -1,7 +1,6 @@
 def selection_sort(array):
     for i in range(0, len(array)):
         swap(array, i, index_of_smallest(array, i))
-        print(array)
 
 
 def index_of_smallest(array, start):
