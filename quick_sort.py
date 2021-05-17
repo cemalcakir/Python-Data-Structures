@@ -1,9 +1,10 @@
-
 def quick_sort(array):
+    "Main function, calls the helper function with default parameters."
     quick_sort_helper(array, 0, len(array) - 1)
 
 
 def quick_sort_helper(array, start, end):
+    "Partitions the array in two and recursively calls itself for each part."
     if start < end:
         index = partition(array, start, end)
         quick_sort_helper(array, start, index - 1)
@@ -11,6 +12,8 @@ def quick_sort_helper(array, start, end):
 
 
 def partition(array, start, end):
+    """Selects the pivot element and sorts the array, elements on the left
+    side of the pivot will be less than pivot while elements on the right bigger than it."""
     pivot_index = start
     pivot = array[pivot_index]
     while start < end:
@@ -22,10 +25,3 @@ def partition(array, start, end):
             array[start], array[end] = array[end], array[start]
     array[end], array[pivot_index] = array[pivot_index], array[end]
     return end
-
-
-# Driver code
-array = [10, 7, 8, 9, 1, 5]
-print(f'Original array: {array}')
-quick_sort(array)
-print(f'Sorted array: {array}')
